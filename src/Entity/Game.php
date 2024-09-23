@@ -24,11 +24,11 @@ class Game
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $game_condition = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $is_box = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $is_box = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $is_notice = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $is_notice = null;
 
     public function getId(): ?int
     {
@@ -71,24 +71,24 @@ class Game
         return $this;
     }
 
-    public function isBox(): ?bool
+    public function getIsBox(): ?string
     {
         return $this->is_box;
     }
 
-    public function setBox(?bool $is_box): static
+    public function setIsBox(?string $is_box): static
     {
         $this->is_box = $is_box;
 
         return $this;
     }
 
-    public function isNotice(): ?bool
+    public function getIsNotice(): ?string
     {
         return $this->is_notice;
     }
 
-    public function setNotice(?bool $is_notice): static
+    public function setIsNotice(?string $is_notice): static
     {
         $this->is_notice = $is_notice;
 
