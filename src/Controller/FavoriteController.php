@@ -59,5 +59,21 @@ class FavoriteController extends AbstractController
         return new JsonResponse(['success' => true, 'favorites' => $favorites]);
     }
     
+    /**
+ * @Route("/api/favorites", name="get_favorites", methods={"GET"})
+ */
+    public function getFavorites(): JsonResponse
+    {
+        $user = $this->getUser(); // Assurez-vous que l'utilisateur est authentifié
+        if (!$user instanceof User) {
+            return new JsonResponse(['error' => 'User not found'], Response::HTTP_UNAUTHORIZED);
+        }
+        
+        // Récupérer la liste des favoris
+        $favorites = $user->getFavorites() ?? [];
+
+        // Retourner la liste des favoris
+        return new JsonResponse(['favorites' => $favorites]);
+    }
 }
 

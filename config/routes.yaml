@@ -9,3 +9,7 @@ api_favorites:
     path: /api/favorites
     controller: App\Controller\FavoriteController::toggleFavorite
     methods: POST
+api_get_favorites:
+    path: /api/favorites
+    controller: App\Controller\FavoriteController::getFavorites
+    methods: GET
